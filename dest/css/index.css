@@ -1,0 +1,16 @@
+#test {
+  width: 200px;
+  height: 200px;
+  background-color: red; }
+  #test div {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: yellow; }
+
+#result{
+  width: 500px;
+  height: 200px;
+  background-color: white;
+}
+
