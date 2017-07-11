@@ -112,7 +112,6 @@ set1.add({a:12});
 console.log(set1)
 console.log('..........');
 
-
 //
 const a = new Set();
 a.add(1).add(2).add(2).add(3);
@@ -132,15 +131,15 @@ function dedupe(array) {
 let setA = new Set(['red', 'blut(array));
 }*/
 
-console.log(dedupe([1,2,3,4,3,4]));
+/*console.log(dedupe([1,2,3,4,3,4]));*/
 
 //set的遍历的方法e', 'yellow']);
-for(let i of setA.values()){
+/*for(let i of setA.values()){
     console.log(i);
-}
+}*/
 //set 实现并集，交集，和差集
 
-const  arrayA = [1,2,3,4];
+/*const  arrayA = [1,2,3,4];
 const  arrayB = [2,3,4,5];
 
 function addArray(a, b) {
@@ -155,4 +154,60 @@ function difArr(a, b) {
     return new Set([...a].filter( x => !b.has(x)));
 }
 
-console.log(addArray(arrayA, arrayB), commonArr(arrayA, arrayB), difArr(arrayA, arrayB));
+console.log(addArray(arrayA, arrayB), commonArr(arrayA, arrayB), difArr(arrayA, arrayB));*/
+
+
+//
+const map = new Map([
+    ['name', '张三'],
+    ['title', 'Author']
+]);
+map.set(p, "123");
+console.log(map.get(p));
+console.log(map);
+map.has('name') // true
+map.get('name') // "张三"
+map.has('title') // true
+map.get('title') // "Author"
+
+//Reflect方法
+
+let myObject = {
+    foo: 1,
+    bar: 2,
+    get baz() {
+        return this.foo + this.bar;
+    }
+};
+
+    console.log(Reflect.get(myObject, "foo"), Reflect.get(myObject, 'bar'), Reflect.get(myObject, 'baz'));
+
+//
+function Greeting(name) {
+    this.name = name;
+}
+
+const instance = Reflect.construct(Greeting, ['张三']);
+console.log(instance.name);
+
+//Reflect.apply的用法
+
+const ages = [11, 33,12, 34, 123];
+
+const  youngest = Math.min.apply(Math, ages);  //order
+const  youngest1 = Reflect.apply(Math.min, Math, ages);
+const  type = Reflect.apply(Object.prototype.toString, youngest, []);
+
+console.log(youngest, youngest1, type);
+
+//Reflect.defineProperty
+
+function myData() {
+
+}
+
+Reflect.defineProperty(myData, 'now', {
+    value: () => Date.now(),
+});
+
+console.log(myData.now());
