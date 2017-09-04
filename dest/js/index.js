@@ -1,213 +1,95 @@
+'use strict';
+
 /**
  * Created by Yy on 2017/7/7.
  */
 
+//字符串的遍历器接口
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
 
-for(let a of "foo123"){
-    console.log(a);
-}
+try {
+    for (var _iterator = 'foo'[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var item = _step.value;
 
-console.log('12'.padStart(10, 'YYYY-MM-DD'));
-
-let obj = {
-    "name":"xiaoming",
-    "age":10
-};
-
-$('#result').append(`
-    <p>My name is: <b>${obj.name}</b>,</p>
-    my age is: <b>${obj.age}</b>
-`);
-
-
-$('#result').html(`
-<ul>
-    <li>first</li>
-    <li>second</li>
-</ul>
-`.trim());
-
-console.log(Number.isInteger(25.01));
-
-console.log(Math.abs(0.00000000000000334-0.00000000000000335) < Number.EPSILON);
-
-function point(x, y = 'world') {
-    console.log(x, y);
-}
-
-
-point('Hello');
-point('hello','sb');
-point('hello','');
-
-function point1(x =0, y=0) {
-    this.x = x;
-    this.y = y;
-}
-
-let p = new point1();
-
-console.log(p.x, p.y);
-
-const sortNumber = (...number) => number.sort();
-
-console.log(sortNumber(1,4,2,312,45,));
-
-console.log(sortNumber.name);
-
-let sum = (num1, num2) =>  {return num1+num2;}
-
-console.log(sum(1,2));
-
-const full = ({first, last}) => first+ '' + last;
-
-const person = {
-    first: 'wo shi',
-    last: " sb"
-};
-
-const isEven = n => {return n%2 === 0};
-const square = n => n*n;
-
-console.log(full(person));
-
-console.log(isEven(13), square(10));
-
-console.log([1,2,3].map(x => x*x));
-
-const headAndTail = (head, ...tail) => {
-    return [head, tail];
-};
-
-headAndTail(1, 2,3,3,4);
-
-const  s = new Set();
-
-[2,3,4,5,23,45,2,3].forEach(x => s.add(x));
-
-for(let i of s){
-    console.log(i);
-}
-
-//
-const set = new Set([1,2,3,4,5,5]);
-
-
-console.log([...set]);
-//
-
-function divs() {
-    return [...document.querySelectorAll("div")];
-}
-const item = new Set(divs());
-
-console.log(item.size);
-
-//
-const set1 = new Set();
-set1.add({a:12});
-
-console.log(set1);
-set1.add({a:12});
-console.log(set1)
-console.log('..........');
-
-//
-const a = new Set();
-a.add(1).add(2).add(2).add(3);
-console.log(a);
-console.log(a.has(1), a.has(2), a.delete(2), a.has(2));
-
-//
-const b = new Set([1,2,3,4,5]);
-console.log(b, Array.from(b));
-
-
-//数组去重的方法
-/*
-function dedupe(array) {
-    return Array.from(new Se
-
-let setA = new Set(['red', 'blut(array));
-}*/
-
-/*console.log(dedupe([1,2,3,4,3,4]));*/
-
-//set的遍历的方法e', 'yellow']);
-/*for(let i of setA.values()){
-    console.log(i);
-}*/
-//set 实现并集，交集，和差集
-
-/*const  arrayA = [1,2,3,4];
-const  arrayB = [2,3,4,5];
-
-function addArray(a, b) {
-    return new Set([...a, ...b]);
-}
-
-function commonArr(a, b) {
-    return new Set([...a].filter( x => b.has(x)));
-}
-
-function difArr(a, b) {
-    return new Set([...a].filter( x => !b.has(x)));
-}
-
-console.log(addArray(arrayA, arrayB), commonArr(arrayA, arrayB), difArr(arrayA, arrayB));*/
-
-
-//
-const map = new Map([
-    ['name', '张三'],
-    ['title', 'Author']
-]);
-map.set(p, "123");
-console.log(map.get(p));
-console.log(map);
-map.has('name') // true
-map.get('name') // "张三"
-map.has('title') // true
-map.get('title') // "Author"
-
-//Reflect方法
-
-let myObject = {
-    foo: 1,
-    bar: 2,
-    get baz() {
-        return this.foo + this.bar;
+        console.log(item);
     }
-};
-
-    console.log(Reflect.get(myObject, "foo"), Reflect.get(myObject, 'bar'), Reflect.get(myObject, 'baz'));
-
-//
-function Greeting(name) {
-    this.name = name;
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
 }
 
-const instance = Reflect.construct(Greeting, ['张三']);
-console.log(instance.name);
-
-//Reflect.apply的用法
-
-const ages = [11, 33,12, 34, 123];
-
-const  youngest = Math.min.apply(Math, ages);  //order
-const  youngest1 = Reflect.apply(Math.min, Math, ages);
-const  type = Reflect.apply(Object.prototype.toString, youngest, []);
-
-console.log(youngest, youngest1, type);
-
-//Reflect.defineProperty
-
-function myData() {
-
+var text = String.fromCodePoint(0x20bb7);
+for (var i = 0; i < text.length; i++) {
+    console.log(text[i]);
 }
 
-Reflect.defineProperty(myData, 'now', {
-    value: () => Date.now(),
-});
+var _iteratorNormalCompletion2 = true;
+var _didIteratorError2 = false;
+var _iteratorError2 = undefined;
 
-console.log(myData.now());
+try {
+    for (var _iterator2 = text[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var _item = _step2.value;
+
+        console.log(_item);
+    }
+
+    //at()
+} catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+            _iterator2.return();
+        }
+    } finally {
+        if (_didIteratorError2) {
+            throw _iteratorError2;
+        }
+    }
+}
+
+console.log('abc'.charAt(1));
+
+//includes()  返回布尔值， 表示是否找到参数字符串
+// startsWith()   返回布尔值， 表示参数字符串是否在原字符串的头部
+// endsWith()  返回布尔值， 表示参数字符串是否在原字符串的尾部
+
+var searchString = 'Hello World';
+
+//endsWidth的第二个参数与其他2个不同，表示前n个字符串
+console.log(searchString.includes('Hello', 2), searchString.startsWith('Hello', 3), searchString.endsWith('ld', 12));
+
+//repeat
+console.log('x'.repeat(4), 'na'.repeat(2), 'hello'.repeat(1.4), 'hello'.repeat(2.1)); //小数的时候回取整
+
+//字符串模板
+console.log('In JavsScript \n is a line-feed, \u666E\u901A\u5B57\u7B26\u4E32');
+
+console.log('In JavaScript this is\nnot legal.\u591A\u884C\u5B57\u7B26\u4E32');
+
+var name = 'Bob',
+    time = 'today';
+
+console.log('Hello ' + name + ', how are you ' + time);
+
+//在模板字符串中要是使用反引号，需要在前面加'\'转义
+
+function log(str) {
+    return console.log(str);
+}
+
+log('`Yo` World ');

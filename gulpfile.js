@@ -1,8 +1,7 @@
 /**
  * Created by Yy on 2017/7/7.
  */
-
-var gulp  = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var sass = require('gulp-sass');
@@ -12,9 +11,8 @@ var babel = require('gulp-babel');
 var babelify = require('babelify');
 
 
-
 // 静态服务器
-gulp.task('serve',['copy-html', 'sass', 'build-js'], function() {
+gulp.task('serve', ['copy-html', 'sass', 'build-js'], function () {
     browserSync.init({
         server: {
             baseDir: "./dest"
@@ -35,7 +33,7 @@ gulp.task('serve',['copy-html', 'sass', 'build-js'], function() {
 // });
 
 // scss编译后的css将注入到浏览器里实现更新
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     return gulp.src("src/scss/*.scss")
         .pipe(sass())
         .pipe(gulp.dest("dest/css"))
@@ -52,16 +50,17 @@ gulp.task('copy-html', function () {
 //编译es6
 gulp.task('build-js', function () {
 
-    browserify({
-        entries: [
-            "./src/js/index.js"
-        ]
-    })
-        .transform(babelify.configure({
-            presets: ["es2015"]
+    // browserify({
+    //     entries: "./src/js/index.js"
+    // })
+    //     .transform(babelify.configure({
+    //         presets: ["es2015"],
+    //     }))
+    //     .bundle()
+    gulp.src('./src/js/index.js')
+        .pipe(babel({
+            presets: ['es2015'],
         }))
-        .bundle()
-        .pipe(source('index.js'))
         .pipe(gulp.dest('./dest/js/'));
 
 });
